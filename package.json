@@ -1,0 +1,20 @@
+{
+  "name": "kanikara",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22.22.3"
+  },
+  "scripts": {
+    "dev:web": "npm run build --workspace=@kanikara/contracts && npm run dev --workspace=@kanikara/web",
+    "dev:api": "npm run build --workspace=@kanikara/contracts && npm run start:dev --workspace=@kanikara/api",
+    "build": "npm run build --workspace=@kanikara/contracts && npm run build --workspace=@kanikara/api && npm run build --workspace=@kanikara/web",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run build --workspace=@kanikara/contracts && npm run typecheck --workspaces --if-present"
+  }
+}
