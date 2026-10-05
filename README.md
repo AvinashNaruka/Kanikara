@@ -1,14 +1,12 @@
 # Kanikara — Grace in Gold, Stories Untold
 
-The repository now contains the existing production storefront and the
-incremental React/Node.js migration.
+Jewellery storefront and admin application. This repository is the production codebase: a Next.js web app, a NestJS API, and shared contracts.
 
-## Migration workspace
+## Workspace
 
-- `apps/web` — Next.js storefront and future customer/admin application
-- `apps/api` — dedicated NestJS/Fastify API
+- `apps/web` — Next.js storefront and admin
+- `apps/api` — NestJS/Fastify API
 - `packages/contracts` — shared TypeScript API contracts
-- `index.html` and `assets/` — existing storefront retained during migration
 
 ## Requirements
 
@@ -32,12 +30,6 @@ npm run dev:api
 npm run dev:web
 ```
 
-The web application runs at `http://localhost:3000` and the API at
-`http://localhost:4000/api`. Health check: `GET /api/health`.
+The web application runs at `http://localhost:3000` and the API at `http://localhost:4000/api`. Health check: `GET /api/health`.
 
-## Migration strategy
-
-The existing storefront remains available while domains move incrementally
-behind the Node.js API. The browser must not receive the Supabase service-role
-key. Pricing, authorization, order creation, and payment verification belong
-to the API and database transaction layer.
+The browser must not receive the Supabase service-role key. Pricing, authorization, order creation, and payment verification belong to the API and database transaction layer.
